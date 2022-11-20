@@ -37,12 +37,15 @@ if __name__ == "__main__":
 	ext = ".npy"
 
 	for idx,env in enumerate(envs):
-		file_name = f"{args.policy}_{env}_{args.seed}"
-		data = np.load(p_dir + file_name + ext)
-		plt.subplot(3,5,idx+1)
-		plt.plot(data)
-		plt.title(env)
-		plt.xlabel("time steps")
+		try:
+			file_name = f"{args.policy}_{env}_{args.seed}"
+			data = np.load(p_dir + file_name + ext)
+			plt.subplot(3,5,idx+1)
+			plt.plot(data)
+			plt.title(env)
+			plt.xlabel("time steps")
+		except:
+			pass
 	plt.show()
 
 
